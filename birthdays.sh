@@ -1,6 +1,6 @@
 #!/bin/bash
 echo " "
-echo ***Age Calucator***
+echo ***BIRTHDAYS***
 echo " "
 echo -- enter the day --
 read dd
