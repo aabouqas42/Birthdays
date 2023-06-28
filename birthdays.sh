@@ -11,6 +11,10 @@ if [[ $mm =~ ^[0-9]{1}$ ]]
 then
 	mm="0$mm"
 fi
+if [[ $dd =~ ^[0-9]{1}$ ]]
+then
+	dd="0$dd"
+fi
 echo -e "\n        \e[32m<<< You was born in [$dd/$mm/$yy] >>>\e[0m\n"
 birthday="$yy-$mm-$dd"
 curr=$(date +%s%3N)
@@ -41,5 +45,5 @@ then
 	echo -e "	           \e[32mHappy , Birthday..!\e[0m\n"
 else
 	echo -e "\e[36m<<< Your age is $years year(s) & $months month(s) & $int day(s) >>>\e[0m\n"
-	echo -e "\e[32m<<< Your next birthday after $next_months month(s) & $weeks week(s) & $next_days_remaining_int day(s)\e[0m >>>\n"
+	echo -e "\e[32m<<< Your next birthday after $next_months month(s) & $weeks week(s) & $next_days_remaining_int day(s) >>>\e[0m\n"
 fi
