@@ -1,10 +1,10 @@
 #!/bin/bash
 echo -e "\n\e[34m<<< BIRTHDAYS >>>\e[0m\n"
-echo -- enter the day --
+echo -- Enter the day --
 read -p '>> ' dd
-echo -- enter the month --
+echo -- Enter the month --
 read -p '>> ' mm
-echo -- enter the year --
+echo -- Enter the year --
 read -p '>> ' yy
 echo -e "\n-- Your birthday [$dd/$mm/$yy] --"
 birthday="$yy-$mm-$dd"
@@ -17,7 +17,8 @@ months=$(echo "(($days - ($years * 365.25)) / 30.44)" | bc)
 echo " "
 days_remaining=$(echo "(($days - ($years * 365.25)) % 30.44)" | bc)
 int=$(echo "$days_remaining" | awk '{printf("%d\n",$0)}')
-echo -e "<<< Your age is $years year(s) & $months month(s) & $int day(s) >>>\n"
+int=$(echo "($int -2)" | bc)
+echo -e ">>> Your age is $years year(s) & $months month(s) & $int day(s) <<<\n"
 current_year=$(date +%Y)
 next_berthday=$(date -d "$mm/$dd/$current_year" +%s)
 if [[ $next_birthday -lt $(date +%s) ]]; then
@@ -30,4 +31,4 @@ next_days_remaining=$(echo "(($next_days - ($next_years * 365.25)) % 30.44)" | b
 next_months=$(echo "(($next_days - ($next_years * 365.25)) / 30.44)" | bc)
 next_days_remaining_int=$(echo "$next_days_remaining" | awk '{printf("%d\n",$0)}')
 weeks=$(echo "($next_months / 7)" | bc)
-echo -e "Your next birthday after $next_months month(s) & $weeks week(s) & $next_days_remaining_int day(s)\n"
+echo -e ">>> Your next birthday after $next_months month(s) & $weeks week(s) & $next_days_remaining_int day(s) <<<<\n"
