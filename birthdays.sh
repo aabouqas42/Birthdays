@@ -17,6 +17,7 @@ then
 fi
 echo -e "\n        \e[32m<<< You was born in [$dd/$mm/$yy] >>>\e[0m\n"
 birthday="$yy-$mm-$dd"
+dayOfweek=$(date -d "$birthday" +%A)
 curr=$(date +%s%3N)
 milliseconds=$(date -d "$birthday" +%s%3N)
 milliseconds=$(echo "$curr - $milliseconds" | bc)
@@ -44,6 +45,6 @@ then
 	echo -e "	     \e[42m<<< Your age is $years years >>>\e[0m\n"
 	echo -e "	           \e[32mHappy , Birthday..!\e[0m\n"
 else
-	echo -e "\e[36m<<< Your age is $years year(s) & $months month(s) & $int day(s) >>>\e[0m\n"
+	echo -e "\e[36m<<< Your age is $years year(s) & $months month(s) & $int day(s) you was born on $dayOfweek>>>\e[0m\n"
 	echo -e "\e[32m<<< Your next birthday after $next_months month(s) & $weeks week(s) & $next_days_remaining_int day(s) >>>\e[0m\n"
 fi
